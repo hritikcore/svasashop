@@ -504,6 +504,55 @@ details p {
     margin-top: 5px;
   }
 
+  .accordion {
+    border-top: 1px solid #ccc;
+    margin: 0;
+    padding: 20px 0;
+  }
+
+  .accordion:last-of-type {
+    border-bottom: 1px solid #ccc;
+  }
+
+  .accordion summary {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .accordion summary::marker {
+    content: ""; /* Removes default marker */
+  }
+
+  .accordion summary::after {
+    content: "+"; /* Default state (collapsed) */
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+
+  .accordion[open] summary::after {
+    content: "-"; /* Expanded state */
+  }
+
+  .accordion p {
+    margin-top: 10px;
+    margin-left: 0;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    display: none; /* Hidden by default */
+  }
+
+  .accordion[open] p {
+    display: block; /* Show content when accordion is open */
+  }
+
   /* What's Inside Section */
   .whats-inside {
     display: none; /* Hides the entire section on mobile */
