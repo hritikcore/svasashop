@@ -15,6 +15,11 @@ body {
 }
 
 @font-face {
+  font-family: Work SansLight;
+  src: url("work-sans-cufonfonts-webfont/WorkSans-Light.woff");
+}
+
+@font-face {
   font-family: Merriweather700;
   src: url("font/Merriweather-Regular.woff2");
 }
@@ -292,20 +297,28 @@ details p {
   margin-top: 16px !important;
   margin-bottom: 12px;
   text-align: left;
+
+  color: #0f0f0f;
+
+  font-family: Merriweather;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 30px; /* 125% */
+  text-transform: capitalize;
 }
 
 .item-description {
-  font-size: 16px;
-  color: #777;
   text-align: left;
   color: #717171;
 
-  font-family: "Work Sans";
+  font-family: "Work SansLight";
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 28px; /* 175% */
   text-transform: capitalize;
+  color: #717171;
 }
 
 /* General Footer Styles */
@@ -376,6 +389,16 @@ details p {
   text-align: center; /* Center align footer-bottom */
 }
 
+.footer-left {
+  text-align: center; /* Centers the logo in the footer */
+}
+
+.footer-logo-image {
+  max-width: 150px; /* Adjust size of the logo */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Ensures it aligns properly */
+  margin: 0 auto; /* Centers the image horizontally */
+}
 /* General Styles for Mobile */
 @media (max-width: 768px) {
   body {
@@ -399,7 +422,7 @@ details p {
   .product-container {
     display: block !important; /* Stacks items vertically for mobile */
     margin: 0;
-    padding: 0 15px;
+    padding: 0 16px;
   }
   /* Image Slider */
   .image-slider {
@@ -483,7 +506,7 @@ details p {
 
   .description {
     text-align: left !important;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
   }
 
   /* Details (Dropdowns) */
@@ -560,5 +583,6 @@ details p {
 
   .footer {
     flex-direction: column;
+    margin-top: 68px;
   }
 }
