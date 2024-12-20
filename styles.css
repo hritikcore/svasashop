@@ -158,6 +158,14 @@ details p {
   color: #666;
 }
 
+details summary {
+  list-style: none; /* Removes default bullet/arrow */
+}
+
+details summary::-webkit-details-marker {
+  display: none; /* Specifically hides the default marker on WebKit browsers (like Safari on iOS) */
+}
+
 /* accordion setup */
 /* General Styles for Accordions */
 .accordion {
