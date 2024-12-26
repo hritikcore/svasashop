@@ -139,6 +139,27 @@ body {
   font-family: Work Sans;
 }
 
+#inviteOnlyButton {
+  display: flex;
+  width: auto;
+  height: 46px;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid #000;
+  background: #1f1f1f !important;
+  color: #ffffff; /* White text color */
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
 details summary {
   color: #000;
 
@@ -510,6 +531,27 @@ details summary::-webkit-details-marker {
     font-style: normal;
     font-weight: 400;
     line-height: 20px; /* 142.857% */
+  }
+
+  #inviteOnlyButton {
+    display: flex;
+    width: auto;
+    height: 56px;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 1px solid #000;
+    background: #1f1f1f !important;
+    color: #ffffff; /* White text color */
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Work Sans";
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
   }
 
   .description {
