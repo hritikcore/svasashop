@@ -37,9 +37,73 @@
               async
             ></script>
           </form> -->
-          <button id="inviteOnlyButton" style="cursor: allowed">
+          <button id="inviteButton" style="cursor: pointer">
             Request Your Invite
           </button>
+
+          <div id="inviteModal" class="modal">
+            <div class="modal-content">
+              <span class="close-button">&times;</span>
+              <h2>Request Invitation</h2>
+              <form id="inviteForm">
+                <!-- <label for="fullName">Full Name</label> -->
+                <input
+                  type="text"
+                  id="fullName"
+                  placeholder="Full Name"
+                  required
+                />
+
+                <!-- <label for="dob">Date of Birth</label> -->
+                <input
+                  type="text"
+                  id="dob"
+                  name="dob"
+                  placeholder="Date of Birth"
+                  required
+                  onfocus="(this.type='date')"
+                  onblur="(this.type='text')"
+                />
+
+                <!-- <label for="profession">Profession</label> -->
+                <input
+                  type="text"
+                  id="profession"
+                  placeholder="Profession"
+                  required
+                />
+
+                <!-- <label for="phone">Phone Number</label> -->
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Phone Number"
+                  required
+                />
+
+                <!-- <label for="socialMedia">Social Media</label> -->
+                <input
+                  type="text"
+                  id="socialMedia"
+                  name="socialMedia"
+                  placeholder="Instagram"
+                />
+
+                <!-- <label for="linkedin">LinkedIn (Optional)</label> -->
+                <input
+                  type="url"
+                  id="linkedin"
+                  placeholder="linkedin(optional)"
+                />
+
+                <!-- <label for="email">Email</label> -->
+                <input type="email" id="email" placeholder="Email" required />
+
+                <button type="submit">Submit</button>
+              </form>
+            </div>
+          </div>
           <div class="description">
             <p>
               A symbol of the Svasa Life universe, the signature Black box
@@ -151,6 +215,70 @@
           thumbnails.forEach((thumb) => thumb.classList.remove("active"));
           thumbnail.classList.add("active");
         });
+      });
+
+      const inviteButton = document.getElementById("inviteButton");
+      const inviteModal = document.getElementById("inviteModal");
+      const closeButton = document.querySelector(".close-button");
+
+      // Open modal
+      inviteButton.addEventListener("click", () => {
+        inviteModal.style.display = "flex";
+      });
+
+      closeButton.addEventListener("click", () => {
+        inviteModal.style.display = "none";
+        inviteForm.reset(); // Clears the form data
+      });
+
+      // Close modal when clicking outside of the content
+      window.addEventListener("click", (event) => {
+        if (event.target === inviteModal) {
+          inviteModal.style.display = "none";
+          inviteForm.reset(); // Clears the form data
+        }
+      });
+
+      // Close modal when clicking outside of content
+      window.addEventListener("click", (event) => {
+        if (event.target === inviteModal) {
+          inviteModal.style.display = "none";
+        }
+      });
+
+      // Handle form submission
+      const inviteForm = document.getElementById("inviteForm");
+      inviteForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        // Collect form data
+        const formData = new FormData(inviteForm);
+        const data = Object.fromEntries(formData);
+
+        // Store data using SheetDB
+        try {
+          const response = await fetch(
+            "https://sheetdb.io/api/v1/your_sheet_id",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+            }
+          );
+
+          if (response.ok) {
+            alert("Your invitation request has been submitted!");
+            inviteForm.reset();
+            inviteModal.style.display = "none";
+          } else {
+            alert("Failed to submit the request. Please try again later.");
+          }
+        } catch (error) {
+          console.error(error);
+          alert("Error occurred. Please try again.");
+        }
       });
     </script>
   </body>
