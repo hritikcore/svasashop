@@ -139,7 +139,7 @@ body {
   font-family: Work Sans;
 }
 
-#inviteOnlyButton {
+#inviteButton {
   display: flex;
   width: auto;
   height: 46px;
@@ -158,6 +158,7 @@ body {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  margin-bottom: 60px;
 }
 
 details summary {
@@ -193,6 +194,7 @@ details summary::-webkit-details-marker {
   border-top: 1px solid #ccc;
   margin: 0;
   padding: 20px 0;
+  /* margin-top: 60px; */
 }
 
 .accordion:last-of-type {
@@ -441,7 +443,6 @@ details summary::-webkit-details-marker {
   align-items: center;
 }
 
-/* Modal content */
 .modal-content {
   background: white;
   padding: 20px;
@@ -449,21 +450,100 @@ details summary::-webkit-details-marker {
   width: 90%;
   max-width: 500px;
   position: relative;
-  text-align: left; /* Aligns text content to the left */
-  margin: 0 auto; /* Centers the modal */
+  text-align: center; /* Centers all text content */
+  margin: 0 auto;
 }
 
 .modal-content h2 {
   padding-left: 20px;
-  padding-bottom: 20px;
-  font-size: 24px; /* Adjust the font size */
-  font-weight: bold; /* Make the text bold */
+  /* padding-bottom: 20px; */
   text-align: left; /* Center the text */
-  margin-bottom: 20px; /* Add spacing below the heading */
-  color: #000; /* Black text color */
-  font-family: "Arial", sans-serif; /* Set a clean font */
+  /* margin-bottom: 20px; /* Add spacing below the heading 
+  font-family: "Arial", sans-serif; Set a clean font */
   text-transform: capitalize;
-  margin-bottom: 10px; /* Capitalize the text */
+
+  color: #0f0f0f;
+
+  font-family: Merriweather;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 125% */
+}
+.modal-content p {
+  text-align: left;
+  padding-left: 20px;
+  color: #717171;
+
+  font-family: "Work Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 166.667% */
+}
+
+.modal2 {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal2 .modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.modal2 .success-icon {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 20px;
+  display: block;
+}
+
+.modal2 .modal-content h2,
+.modal2 .modal-content p {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.modal2 .modal-content h2 {
+  padding-left: 0px !important;
+  padding-bottom: 5px !important;
+  margin: 10px 0;
+  text-align: center;
+  color: #0f0f0f;
+
+  font-family: Merriweather;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.modal2 .modal-content p {
+  margin: 5px auto;
+  width: auto;
+  text-align: center;
+  color: #717171;
+
+  text-align: center;
+  font-family: "Work Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
 }
 
 /* Close button */
@@ -512,6 +592,13 @@ form button[type="submit"] {
   border: none;
   cursor: pointer;
   text-align: center;
+  color: #f4f1df;
+
+  font-family: "Work Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
 }
 /* General Styles for Mobile */
 @media (max-width: 768px) {
@@ -601,7 +688,7 @@ form button[type="submit"] {
     line-height: normal;
   }
 
-  .buy-now {
+  /* .buy-now {
     display: block;
     width: 100%;
     padding: 8px 24px;
@@ -615,10 +702,10 @@ form button[type="submit"] {
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 20px; /* 142.857% */
-  }
+    line-height: 20px; /* 142.857% 
+  } */
 
-  #inviteOnlyButton {
+  #inviteButton {
     display: flex;
     width: auto;
     height: 56px;
@@ -637,6 +724,23 @@ form button[type="submit"] {
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    margin-bottom: 60px;
+  }
+
+  .modal .modal-content {
+    /* Fixed width */
+    /* Fixed height */
+    margin: 0 24px; /* Centers horizontally */
+    border-radius: 10px; /* Optional rounded corners */
+    box-sizing: border-box; /* Includes padding in width/height */
+  }
+
+  .modal2 .modal-content {
+    /* Fixed width */
+    /* Fixed height */
+    margin: 0 24px; /* Centers horizontally */
+    border-radius: 10px; /* Optional rounded corners */
+    box-sizing: border-box; /* Includes padding in width/height */
   }
 
   .description {

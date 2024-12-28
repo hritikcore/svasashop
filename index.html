@@ -45,6 +45,7 @@
             <div class="modal-content">
               <span class="close-button">&times;</span>
               <h2>Request Invitation</h2>
+              <p>Svasa Life’s curated gift box</p>
               <form id="inviteForm">
                 <!-- <label for="fullName">Full Name</label> -->
                 <input
@@ -113,7 +114,23 @@
               </form>
             </div>
           </div>
-          <div class="description">
+
+          <div id="confirmationModal" class="modal2">
+            <div class="modal-content">
+              <span class="close-button">&times;</span>
+              <img
+                src="image copy 8.png"
+                alt="Success Icon"
+                class="success-icon"
+              />
+              <h2>Request Sent</h2>
+              <p>
+                We have received your request. As part of an exclusive
+                selection, Svasa Life extends invitations only to those...
+              </p>
+            </div>
+          </div>
+          <!-- <div class="description">
             <p>
               A symbol of the Svasa Life universe, the signature Black box
               reflects our timeless elegance and savoir-faire. Crafted with
@@ -124,7 +141,21 @@
               Dimensions/Weight: 8.5” x 12” x 3.5”<br />
               Approx. 2kg all inclusive
             </p>
-          </div>
+          </div> -->
+
+          <details class="accordion">
+            <summary>Description</summary>
+            <p>
+              A symbol of the Svasa Life universe, the signature Black box
+              reflects our timeless elegance and savoir-faire. Crafted with
+              precision, the Svasa Life box is made from fine materials,
+              ensuring its lasting appeal to enable its position as a
+              collectible.<br />
+              <br />
+              Dimensions/Weight: 8.5” x 12” x 3.5”<br />
+              Approx. 2kg all inclusive
+            </p>
+          </details>
           <details class="accordion">
             <summary>Shipping</summary>
             <p>
@@ -214,7 +245,7 @@
       </div> -->
     </footer>
     <script>
-      // Your JavaScript code here
+      // JavaScript code for handling modal and form
       const mainImage = document.getElementById("main-image");
       const thumbnails = document.querySelectorAll(".thumbnail");
 
@@ -228,30 +259,31 @@
 
       const inviteButton = document.getElementById("inviteButton");
       const inviteModal = document.getElementById("inviteModal");
-      const closeButton = document.querySelector(".close-button");
+      const confirmationModal = document.getElementById("confirmationModal");
+      const closeButtons = document.querySelectorAll(".close-button");
 
-      // Open modal
+      // Open invite modal
       inviteButton.addEventListener("click", () => {
         inviteModal.style.display = "flex";
       });
 
-      closeButton.addEventListener("click", () => {
-        inviteModal.style.display = "none";
-        inviteForm.reset(); // Clears the form data
+      // Close modals when close button is clicked
+      closeButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          inviteModal.style.display = "none";
+          confirmationModal.style.display = "none";
+          inviteForm.reset(); // Clears form data when closing
+        });
       });
 
-      // Close modal when clicking outside of the content
+      // Close modals when clicking outside the modal content
       window.addEventListener("click", (event) => {
         if (event.target === inviteModal) {
           inviteModal.style.display = "none";
-          inviteForm.reset(); // Clears the form data
+          inviteForm.reset(); // Clears form data
         }
-      });
-
-      // Close modal when clicking outside of content
-      window.addEventListener("click", (event) => {
-        if (event.target === inviteModal) {
-          inviteModal.style.display = "none";
+        if (event.target === confirmationModal) {
+          confirmationModal.style.display = "none";
         }
       });
 
@@ -273,14 +305,19 @@
               headers: {
                 "Content-Type": "application/json",
               },
-              body: JSON.stringify(data), // Correctly mapped data
+              body: JSON.stringify(data), // Send data to the server
             }
           );
 
           if (response.ok) {
-            alert("Your invitation request has been submitted!");
-            inviteForm.reset();
+            // Hide the invite modal
             inviteModal.style.display = "none";
+
+            // Show the confirmation modal
+            confirmationModal.style.display = "flex";
+
+            // Reset form fields
+            inviteForm.reset();
           } else {
             alert("Failed to submit the request. Please try again later.");
           }
