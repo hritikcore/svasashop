@@ -32,7 +32,7 @@
         </div>
         <div class="product-details">
           <h3 class="limited-edition">Limited Edition</h3>
-          <h2 class="product-title">Boundless</h2>
+          <h2 class="product-title">Volume 3</h2>
           <p class="price">₹3000 (inclusive of all taxes)</p>
           <button id="inviteButton" style="cursor: pointer">
             Request Your Invite
@@ -134,8 +134,25 @@
           <details class="accordion">
             <summary>Description</summary>
             <p>
-              A symbol of the Svasa Life universe, the signature Black box
-              reflects our timeless elegance and savoir-faire.
+              Celebrations in India are grand. No better way to make a grand
+              gesture than with our Maanyata curation, which brings together the
+              best of the 'Jashn' silver plated barware and accessories.
+              <br />
+              <br />
+              <span class="special-text2">This Gift Box Includes:</span>
+              <br />
+              <br />
+              Magazines: The Indian Dream | Beyond Borders
+              <br />
+              Bag Tags: Circular design in veg tanned leather. Lightweight and
+              Branded with Svasa Life Logo.
+              <br />
+              Packaging: A symbol of the Svasa Life universe, the signature
+              Black box reflects our timeless elegance and savoir-faire. Crafted
+              with precision, the Svasa Life box is made from fine materials,
+              ensuring its lasting appeal to enable its position as a
+              collectible.
+              <br />
             </p>
           </details>
           <details class="accordion">
@@ -150,7 +167,10 @@
             <summary>Refunds & Cancellation</summary>
             <p>
               For any refund requests, you can reach out to us at
-              Hello@svasalife.com, or call us on +919999710359.
+              Hello@svasalife.com, or call us on +919999710359. Orders once
+              placed can be cancelled instantly via text messages on
+              +919999710359. It may take up to 12 hours for refunds to reflect
+              in your source account.
             </p>
           </details>
         </div>
@@ -227,6 +247,21 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        const accordions = document.querySelectorAll("details.accordion");
+
+        // Close other accordions when one is opened
+        accordions.forEach((accordion) => {
+          accordion.addEventListener("toggle", () => {
+            if (accordion.open) {
+              accordions.forEach((otherAccordion) => {
+                if (otherAccordion !== accordion) {
+                  otherAccordion.open = false; // Close other accordions
+                }
+              });
+            }
+          });
+        });
+
         // Utility functions to handle cookies
         function setCookie(name, value, days) {
           const date = new Date();
@@ -247,10 +282,10 @@
           const inviteButton = document.getElementById("inviteButton");
           if (inviteButton) {
             inviteButton.disabled = true; // Disable the button
-            // Avoid inline styles if you have CSS for the disabled state
-            inviteButton.classList.add("disabled"); // Optional: Add a "disabled" class if needed
+            inviteButton.classList.add("disabled"); // Optional: Add a "disabled" class
           }
         }
+
         // Check if the "inviteRequested" cookie exists and disable the button if it does
         if (getCookie("inviteRequested")) {
           disableInviteButton();
