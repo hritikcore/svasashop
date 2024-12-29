@@ -161,6 +161,14 @@ body {
   margin-bottom: 60px;
 }
 
+.flatpickr-input[placeholder] {
+  display: block;
+}
+
+.flatpickr-input[alt-input] {
+  display: none !important;
+}
+
 details summary {
   color: #000;
 
@@ -630,6 +638,13 @@ form button[type="submit"] {
     margin-bottom: 20px;
   }
 
+  .flatpickr-input[placeholder] {
+    display: block;
+  }
+
+  .flatpickr-input[alt-input] {
+    display: none !important;
+  }
   .image-slider #main-image {
     width: 100%;
     height: auto;

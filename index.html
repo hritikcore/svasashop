@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Svasa Life</title>
     <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
   </head>
   <body>
     <header class="header">
@@ -63,8 +67,6 @@
                   name="Date Of Birth"
                   placeholder="Date Of Birth"
                   required
-                  onfocus="(this.type='date')"
-                  onblur="(this.type='text')"
                 />
 
                 <!-- <label for="profession">Profession</label> -->
@@ -98,7 +100,8 @@
                   type="url"
                   id="Linkedin"
                   name="LinkedIn"
-                  placeholder="Linkedin(optional)"
+                  placeholder="Linkedin"
+                  required
                 />
 
                 <!-- <label for="email">Email</label> -->
@@ -245,6 +248,18 @@
       </div> -->
     </footer>
     <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        flatpickr("#dob", {
+          dateFormat: "Y-m-d",
+          altInput: false,
+          altFormat: "F j, Y", // Friendly date format
+          allowInput: true,
+          onReady: function (selectedDates, dateStr, instance) {
+            // Set placeholder for the altInput
+            instance.altInput.setAttribute("placeholder", "Date of Birth");
+          },
+        });
+      });
       // JavaScript code for handling modal and form
       const mainImage = document.getElementById("main-image");
       const thumbnails = document.querySelectorAll(".thumbnail");
@@ -327,5 +342,6 @@
         }
       });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   </body>
 </html>
