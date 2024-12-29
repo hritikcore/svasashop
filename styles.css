@@ -49,9 +49,10 @@ body {
 
 .product-container {
   display: flex;
-  gap: 180px;
+  gap: 200px;
   margin: 30px auto;
   max-width: 1200px;
+  height: auto;
 }
 
 .image-slider {
