@@ -111,8 +111,12 @@
               />
               <h2>Request Sent</h2>
               <p>
-                We have received your request. As part of an exclusive
-                selection, Svasa Life extends invitations only to those...
+                We have received your request. Svasa Life caters exclusively to
+                like-minded individuals with a shared vision and values, and
+                extends an invitation to them to join our community. Our team
+                will carefully review your submission and revert at the
+                earliest. We appreciate your patience and look forward to the
+                possibility of welcoming you into our community.
               </p>
             </div>
           </div>
@@ -168,26 +172,51 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        // Utility functions to handle cookies
+        function setCookie(name, value, days) {
+          const date = new Date();
+          date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000); // Convert days to milliseconds
+          document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/`;
+        }
+
+        function getCookie(name) {
+          const cookies = document.cookie.split("; ");
+          for (let i = 0; i < cookies.length; i++) {
+            const [key, value] = cookies[i].split("=");
+            if (key === name) return value;
+          }
+          return null;
+        }
+
+        function disableInviteButton() {
+          const inviteButton = document.getElementById("inviteButton");
+          if (inviteButton) {
+            inviteButton.disabled = true;
+            inviteButton.style.background = "#8E8E8E";
+            inviteButton.style.cursor = "not-allowed";
+          }
+        }
+
+        // Check if the "inviteRequested" cookie exists and disable the button if it does
+        if (getCookie("inviteRequested")) {
+          disableInviteButton();
+        }
+
         // Handle Date of Birth Field
         const dobInput = document.getElementById("dob");
         if (dobInput) {
-          // Check if native date input is supported
           if ("showPicker" in dobInput) {
-            // Use native date picker if supported
             dobInput.type = "date";
             dobInput.setAttribute("placeholder", "Date of Birth");
           } else {
-            // Fallback for unsupported browsers
             dobInput.type = "text";
             dobInput.setAttribute("placeholder", "Date of Birth");
 
-            // Show date picker on focus
             dobInput.addEventListener("focus", function () {
               dobInput.type = "date";
-              dobInput.click(); // Open calendar programmatically
+              dobInput.click();
             });
 
-            // Reset to placeholder when blurred without a value
             dobInput.addEventListener("blur", function () {
               if (!dobInput.value) {
                 dobInput.type = "text";
@@ -201,16 +230,14 @@
         const emailInput = document.getElementById("email");
         const emailError = document.getElementById("emailError");
         if (emailInput && emailError) {
-          // Show error message when the user is typing or leaves the field invalid
           emailInput.addEventListener("input", function () {
             if (!emailInput.validity.valid) {
-              emailError.style.display = "block"; // Show error message if invalid
+              emailError.style.display = "block";
             } else {
-              emailError.style.display = "none"; // Hide error if valid
+              emailError.style.display = "none";
             }
           });
 
-          // Ensure error message is shown if the user leaves the field invalid (on blur)
           emailInput.addEventListener("blur", function () {
             if (!emailInput.validity.valid) {
               emailError.style.display = "block";
@@ -228,7 +255,9 @@
 
         if (inviteButton && inviteModal) {
           inviteButton.addEventListener("click", () => {
-            inviteModal.style.display = "flex";
+            if (!getCookie("inviteRequested")) {
+              inviteModal.style.display = "flex";
+            }
           });
         }
 
@@ -267,6 +296,10 @@
               );
 
               if (response.ok) {
+                // Set the "inviteRequested" cookie
+                setCookie("inviteRequested", "true", 30); // Cookie valid for 30 days
+                disableInviteButton(); // Disable the button
+
                 if (inviteModal) inviteModal.style.display = "none";
                 if (confirmationModal) confirmationModal.style.display = "flex";
                 inviteForm.reset();
