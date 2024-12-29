@@ -144,8 +144,9 @@
               <br />
               Magazines: The Indian Dream | Beyond Borders
               <br />
+              <br />
               Bag Tags: Circular design in veg tanned leather. Lightweight and
-              Branded with Svasa Life Logo.
+              Branded with Svasa Life Logo.<br />
               <br />
               Packaging: A symbol of the Svasa Life universe, the signature
               Black box reflects our timeless elegance and savoir-faire. Crafted
@@ -259,6 +260,18 @@
                 }
               });
             }
+          });
+        });
+
+        // Handle Thumbnail Clicks to Update Main Image
+        const thumbnails = document.querySelectorAll(".thumbnail");
+        const mainImage = document.getElementById("main-image");
+
+        thumbnails.forEach((thumbnail) => {
+          thumbnail.addEventListener("click", function () {
+            mainImage.src = thumbnail.src; // Update the main image source
+            thumbnails.forEach((thumb) => thumb.classList.remove("active")); // Remove active class from all
+            thumbnail.classList.add("active"); // Add active class to clicked thumbnail
           });
         });
 
