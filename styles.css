@@ -511,8 +511,8 @@ details summary::-webkit-details-marker {
 
 .modal-content {
   background: white;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 24px;
+  border-radius: 0px;
   width: 90%;
   max-width: 500px;
   position: relative;
@@ -796,7 +796,7 @@ form button[type="submit"] {
     /* Fixed width */
     /* Fixed height */
     margin: 0 24px; /* Centers horizontally */
-    border-radius: 10px; /* Optional rounded corners */
+    border-radius: 0px; /* Optional rounded corners */
     box-sizing: border-box; /* Includes padding in width/height */
   }
 
