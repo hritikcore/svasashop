@@ -191,12 +191,11 @@
         function disableInviteButton() {
           const inviteButton = document.getElementById("inviteButton");
           if (inviteButton) {
-            inviteButton.disabled = true;
-            inviteButton.style.background = "#8E8E8E";
-            inviteButton.style.cursor = "not-allowed";
+            inviteButton.disabled = true; // Disable the button
+            // Avoid inline styles if you have CSS for the disabled state
+            inviteButton.classList.add("disabled"); // Optional: Add a "disabled" class if needed
           }
         }
-
         // Check if the "inviteRequested" cookie exists and disable the button if it does
         if (getCookie("inviteRequested")) {
           disableInviteButton();

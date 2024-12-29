@@ -161,6 +161,13 @@ body {
   margin-bottom: 60px;
 }
 
+#inviteButton:disabled {
+  background: #8e8e8e !important; /* Add !important to override other styles */
+  color: #ffffff; /* Optional: Adjust text color */
+  cursor: not-allowed;
+  border: none; /* Optional: Adjust border style */
+}
+
 input[type="date"]::-webkit-input-placeholder {
   color: #aaa;
   font-style: italic;
