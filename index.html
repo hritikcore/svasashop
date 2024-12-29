@@ -34,13 +34,6 @@
           <h3 class="limited-edition">Limited Edition</h3>
           <h2 class="product-title">Boundless</h2>
           <p class="price">₹3000 (inclusive of all taxes)</p>
-          <!-- <form>
-            <script
-              src="https://checkout.razorpay.com/v1/payment-button.js"
-              data-payment_button_id="pl_PZP8h7xP6zn4m9"
-              async
-            ></script>
-          </form> -->
           <button id="inviteButton" style="cursor: pointer">
             Request Your Invite
           </button>
@@ -51,7 +44,6 @@
               <h2>Request Invitation</h2>
               <p>Svasa Life’s curated gift box</p>
               <form id="inviteForm">
-                <!-- <label for="fullName">Full Name</label> -->
                 <input
                   type="text"
                   id="fullName"
@@ -59,17 +51,14 @@
                   placeholder="Full Name"
                   required
                 />
-
-                <!-- <label for="dob">Date of Birth</label> -->
+                <label for="dob">Date Of Birth</label>
                 <input
                   type="text"
                   id="dob"
-                  name="Date Of Birth"
-                  placeholder="Date Of Birth"
+                  name="dob"
+                  placeholder="Date of Birth"
                   required
                 />
-
-                <!-- <label for="profession">Profession</label> -->
                 <input
                   type="text"
                   id="profession"
@@ -77,8 +66,6 @@
                   placeholder="Profession"
                   required
                 />
-
-                <!-- <label for="phone">Phone Number</label> -->
                 <input
                   type="tel"
                   id="phone"
@@ -86,16 +73,12 @@
                   placeholder="Phone Number"
                   required
                 />
-
-                <!-- <label for="socialMedia">Social Media</label> -->
                 <input
                   type="text"
                   id="socialMedia"
                   name="Instagram"
                   placeholder="Instagram"
                 />
-
-                <!-- <label for="linkedin">LinkedIn (Optional)</label> -->
                 <input
                   type="url"
                   id="Linkedin"
@@ -103,8 +86,6 @@
                   placeholder="Linkedin"
                   required
                 />
-
-                <!-- <label for="email">Email</label> -->
                 <input
                   type="email"
                   id="email"
@@ -112,7 +93,6 @@
                   placeholder="Email"
                   required
                 />
-
                 <button type="submit">Submit</button>
               </form>
             </div>
@@ -133,30 +113,12 @@
               </p>
             </div>
           </div>
-          <!-- <div class="description">
-            <p>
-              A symbol of the Svasa Life universe, the signature Black box
-              reflects our timeless elegance and savoir-faire. Crafted with
-              precision, the Svasa Life box is made from fine materials,
-              ensuring its lasting appeal to enable its position as a
-              collectible.<br />
-              <br />
-              Dimensions/Weight: 8.5” x 12” x 3.5”<br />
-              Approx. 2kg all inclusive
-            </p>
-          </div> -->
 
           <details class="accordion">
             <summary>Description</summary>
             <p>
               A symbol of the Svasa Life universe, the signature Black box
-              reflects our timeless elegance and savoir-faire. Crafted with
-              precision, the Svasa Life box is made from fine materials,
-              ensuring its lasting appeal to enable its position as a
-              collectible.<br />
-              <br />
-              Dimensions/Weight: 8.5” x 12” x 3.5”<br />
-              Approx. 2kg all inclusive
+              reflects our timeless elegance and savoir-faire.
             </p>
           </details>
           <details class="accordion">
@@ -171,58 +133,18 @@
             <summary>Refunds & Cancellation</summary>
             <p>
               For any refund requests, you can reach out to us at
-              Hello@svasalife.com, or call us on +919999710359. Orders once
-              placed can be cancelled instantly via text messages on
-              +919999710359. It may take up to 12 hours for refunds to reflect
-              in your source account.
+              Hello@svasalife.com, or call us on +919999710359.
             </p>
           </details>
-        </div>
-      </section>
-
-      <section class="whats-inside">
-        <div class="text-container">
-          <h3 class="section-subtitle">Collector's Item</h3>
-          <h2 class="section-title">What's Inside</h2>
-        </div>
-        <div class="items">
-          <div class="item">
-            <img src="image copy 5.png" alt="Magazines" class="item-image" />
-            <h4 class="item-title">Magazines</h4>
-            <p class="item-description">
-              Volume 3 | Issues 1 and 2.<br />
-              The Indian Dream | Beyond Borders
-            </p>
-          </div>
-          <div class="item">
-            <img src="image copy 6.png" alt="Bag Tags" class="item-image" />
-            <h4 class="item-title">Bag Tags</h4>
-            <p class="item-description">
-              Circular design in veg tanned leather.<br />
-              Lightweight and Branded with Svasa<br />
-              Life Logo
-            </p>
-          </div>
-          <div class="item">
-            <img src="image copy 7.png" alt="Cookies" class="item-image" />
-            <h4 class="item-title">Cookies</h4>
-            <p class="item-description">
-              Volume 3 | Issues 1 and 2.<br />The Indian Dream | Beyond Borders
-            </p>
-          </div>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <!-- Footer Center Row -->
       <div class="footer-center">
         <p>
           Svasa Life is a quarterly magazine with its origins in Bangalore,
-          India. Created with an essence of art, heritage, business,
-          entrepreneurship, and the finest things that appeal to both the heart
-          and intellect, each Svasa Life issue brings you intriguing stories
-          that take a deeper look into the phenomenon of life.
+          India.
         </p>
         <ul class="social-links">
           <li><a href="#">Facebook</a></li>
@@ -232,8 +154,6 @@
           <li><a href="#">LinkedIn</a></li>
         </ul>
       </div>
-
-      <!-- Footer Left Row -->
       <div class="footer-left">
         <img
           src="footerlogo/Svasa Life Logo white-01-01 copy.png"
@@ -241,107 +161,88 @@
           class="footer-logo-image"
         />
       </div>
-
-      <!-- Footer Bottom Row -->
-      <!-- <div class="footer-bottom">
-        <p>About Us | Terms & Conditions | ©2021 Svasa Life, Inc</p>
-      </div> -->
     </footer>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        flatpickr("#dob", {
-          dateFormat: "Y-m-d",
-          altInput: false,
-          altFormat: "F j, Y", // Friendly date format
-          allowInput: true,
-          onReady: function (selectedDates, dateStr, instance) {
-            // Set placeholder for the altInput
-            instance.altInput.setAttribute("placeholder", "Date of Birth");
-          },
-        });
-      });
-      // JavaScript code for handling modal and form
-      const mainImage = document.getElementById("main-image");
-      const thumbnails = document.querySelectorAll(".thumbnail");
+        const dobInput = document.getElementById("dob");
 
-      thumbnails.forEach((thumbnail) => {
-        thumbnail.addEventListener("click", () => {
-          mainImage.src = thumbnail.src;
-          thumbnails.forEach((thumb) => thumb.classList.remove("active"));
-          thumbnail.classList.add("active");
-        });
-      });
+        // Check if native date input is supported
+        if ("showPicker" in dobInput) {
+          // Use native date picker if supported
+          dobInput.type = "date";
+          dobInput.setAttribute("placeholder", "Date of Birth");
+        } else {
+          // Fallback for unsupported browsers
+          dobInput.type = "text";
+          dobInput.setAttribute("placeholder", "Date of Birth");
 
+          // Show date picker on focus
+          dobInput.addEventListener("focus", function () {
+            dobInput.type = "date";
+            dobInput.click(); // Open calendar programmatically
+          });
+
+          // Reset to placeholder when blurred without a value
+          dobInput.addEventListener("blur", function () {
+            if (!dobInput.value) {
+              dobInput.type = "text";
+              dobInput.setAttribute("placeholder", "Date of Birth");
+            }
+          });
+        }
+      });
+      // Modal handling logic
       const inviteButton = document.getElementById("inviteButton");
       const inviteModal = document.getElementById("inviteModal");
       const confirmationModal = document.getElementById("confirmationModal");
       const closeButtons = document.querySelectorAll(".close-button");
 
-      // Open invite modal
       inviteButton.addEventListener("click", () => {
         inviteModal.style.display = "flex";
       });
 
-      // Close modals when close button is clicked
       closeButtons.forEach((button) => {
         button.addEventListener("click", () => {
           inviteModal.style.display = "none";
           confirmationModal.style.display = "none";
-          inviteForm.reset(); // Clears form data when closing
+          document.getElementById("inviteForm").reset();
         });
       });
 
-      // Close modals when clicking outside the modal content
       window.addEventListener("click", (event) => {
         if (event.target === inviteModal) {
           inviteModal.style.display = "none";
-          inviteForm.reset(); // Clears form data
-        }
-        if (event.target === confirmationModal) {
-          confirmationModal.style.display = "none";
         }
       });
 
-      // Handle form submission
       const inviteForm = document.getElementById("inviteForm");
       inviteForm.addEventListener("submit", async (event) => {
         event.preventDefault();
-
-        // Collect form data
         const formData = new FormData(inviteForm);
         const data = Object.fromEntries(formData);
 
-        // Store data using SheetDB
         try {
           const response = await fetch(
             "https://sheetdb.io/api/v1/g55eitrdiseh0",
             {
               method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(data), // Send data to the server
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(data),
             }
           );
 
           if (response.ok) {
-            // Hide the invite modal
             inviteModal.style.display = "none";
-
-            // Show the confirmation modal
             confirmationModal.style.display = "flex";
-
-            // Reset form fields
             inviteForm.reset();
           } else {
-            alert("Failed to submit the request. Please try again later.");
+            alert("Failed to submit the request. Please try again.");
           }
         } catch (error) {
-          console.error(error);
           alert("Error occurred. Please try again.");
         }
       });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   </body>
 </html>

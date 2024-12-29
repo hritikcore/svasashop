@@ -161,14 +161,53 @@ body {
   margin-bottom: 60px;
 }
 
-.flatpickr-input[placeholder] {
-  display: block;
+input[type="date"]::-webkit-input-placeholder {
+  color: #aaa;
+  font-style: italic;
 }
 
-.flatpickr-input[alt-input] {
-  display: none !important;
+/* Standard placeholder styling for other browsers */
+input[type="date"]::placeholder {
+  color: #aaa;
+  font-style: italic;
 }
 
+/* Reset styles for consistency */
+input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 10px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+label {
+  color: #858585;
+  font-family: "Work Sans", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 133.333% */
+  margin-bottom: 0px !important;
+}
+
+input {
+  color: #858585;
+  font-family: "Work Sans", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 133.333% */
+  margin-bottom: 0px !important;
+}
+/* Additional styling for focus state */
+input[type="date"]:focus {
+  outline: none;
+  border-color: #007bff;
+}
 details summary {
   color: #000;
 
@@ -624,7 +663,6 @@ form button[type="submit"] {
     width: auto;
     height: 24px;
   }
-
   /* .product-page {
   } */
 
@@ -638,13 +676,6 @@ form button[type="submit"] {
     margin-bottom: 20px;
   }
 
-  .flatpickr-input[placeholder] {
-    display: block;
-  }
-
-  .flatpickr-input[alt-input] {
-    display: none !important;
-  }
   .image-slider #main-image {
     width: 100%;
     height: auto;
