@@ -1006,4 +1006,8 @@ form button[type="submit"] {
 
     /* matches left padding */
   }
+  form input[type="date"]::-webkit-datetime-edit,
+  form input[type="date"]::-webkit-date-and-time-value {
+    text-align: left;
+  }
 }
