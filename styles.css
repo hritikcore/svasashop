@@ -958,6 +958,7 @@ form button[type="submit"] {
     margin-top: 68px;
   }
   /* All text-like fields look identical */
+  /* Common styles for all form inputs */
   form input[type="text"],
   form input[type="tel"],
   form input[type="email"],
@@ -965,33 +966,42 @@ form button[type="submit"] {
   form input[type="date"] {
     width: calc(100% - 40px);
     margin: 0 20px;
-    height: 56px; /* <-- match Full Name */
+    height: 56px; /* match "Full Name" height */
     padding: 14px 16px;
     font-size: 16px; /* prevents iOS zoom */
     border: 1px solid #ddd;
-    border-radius: 10px; /* match your text fields’ look */
-    background: #fff; /* <-- forces white (no iOS grey) */
+    border-radius: 10px; /* consistent rounded corners */
+    background: #fff; /* force white (no iOS grey) */
     color: #111;
     box-sizing: border-box;
+    font-family: "Work Sans", sans-serif;
   }
 
-  /* iOS/WebKit date control fixes */
+  /* iOS/WebKit resets for date input */
   form input[type="date"] {
     -webkit-appearance: none;
     appearance: none;
     position: relative;
   }
 
-  /* remove inner weird padding */
+  /* remove weird padding inside the date text */
   form input[type="date"]::-webkit-datetime-edit {
     padding: 0;
   }
 
-  /* keep icon aligned and tappable */
+  /* ensure the calendar icon is aligned and tappable */
   form input[type="date"]::-webkit-calendar-picker-indicator {
     position: absolute;
     right: 16px;
     opacity: 0.7;
     cursor: pointer;
+  }
+
+  /* Fake placeholder for empty date fields */
+  form input[type="date"]:not(:focus):invalid::before {
+    content: attr(data-placeholder);
+    color: #aaa;
+    font-style: normal;
+    margin-left: 16px; /* matches left padding */
   }
 }
