@@ -1010,4 +1010,14 @@ form button[type="submit"] {
   form input[type="date"]::-webkit-date-and-time-value {
     text-align: left;
   }
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #111 !important;
+    caret-color: #111;
+    -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
+    box-shadow: 0 0 0 1000px #fff inset !important;
+    border: 1px solid #ddd !important; /* keep your normal border */
+    border-radius: 10px; /* match your inputs */
+  }
 }
