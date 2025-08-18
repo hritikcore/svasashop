@@ -1002,6 +1002,8 @@ form button[type="submit"] {
     content: attr(data-placeholder);
     color: #aaa;
     font-style: normal;
-    margin-left: 16px; /* matches left padding */
+    white-space: nowrap;
+
+    /* matches left padding */
   }
 }
