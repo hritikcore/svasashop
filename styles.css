@@ -888,12 +888,13 @@ form button[type="submit"] {
     margin-top: 5px;
   }
 
+  /* Base */
   .accordion {
     border-top: 1px solid #ccc;
-    margin: 0;
     padding: 20px 0;
+    overflow: hidden; /* prevents ghost text on collapse */
+    contain: layout paint; /* isolates painting on some WebKit builds */
   }
-
   .accordion:last-of-type {
     border-bottom: 1px solid #ccc;
   }
@@ -907,30 +908,40 @@ form button[type="submit"] {
     align-items: center;
     cursor: pointer;
     list-style: none;
+    -webkit-tap-highlight-color: transparent;
   }
-
-  .accordion summary::marker {
-    content: ""; /* Removes default marker */
+  .accordion summary::-webkit-details-marker {
+    display: none;
   }
-
   .accordion summary::after {
-    content: "+"; /* Default state (collapsed) */
+    content: "+";
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 700;
     margin-left: 10px;
+    /* (remove overflow:auto here) */
   }
-
   .accordion[open] summary::after {
-    content: "-"; /* Expanded state */
+    content: "-";
   }
 
-  .accordion p {
-    margin-top: 10px;
-    margin-left: 0;
+  /* Content wrapper – avoid margin collapse & subpixel bleed */
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden; /* clips any leftover pixels */
+    transition: max-height 250ms ease;
+  }
+
+  /* When open, reveal content */
+  .accordion[open] .accordion-content {
+    max-height: 1000px; /* large enough for your longest block */
+  }
+
+  /* Text */
+  .accordion-content p {
+    margin: 10px 0 0 0; /* no negative/top-collapsing margins */
     font-size: 16px;
     color: #555;
     line-height: 1.6;
-    display: none; /* Hidden by default */
   }
 
   .accordion[open] p {
