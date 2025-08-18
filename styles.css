@@ -694,6 +694,7 @@ form button[type="submit"] {
   font-weight: 400;
   line-height: 20px; /* 142.857% */
 }
+
 /* General Styles for Mobile */
 @media (max-width: 768px) {
   body {
@@ -955,5 +956,42 @@ form button[type="submit"] {
   .footer {
     flex-direction: column;
     margin-top: 68px;
+  }
+  /* All text-like fields look identical */
+  form input[type="text"],
+  form input[type="tel"],
+  form input[type="email"],
+  form input[type="url"],
+  form input[type="date"] {
+    width: calc(100% - 40px);
+    margin: 0 20px;
+    height: 56px; /* <-- match Full Name */
+    padding: 14px 16px;
+    font-size: 16px; /* prevents iOS zoom */
+    border: 1px solid #ddd;
+    border-radius: 10px; /* match your text fields’ look */
+    background: #fff; /* <-- forces white (no iOS grey) */
+    color: #111;
+    box-sizing: border-box;
+  }
+
+  /* iOS/WebKit date control fixes */
+  form input[type="date"] {
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+  }
+
+  /* remove inner weird padding */
+  form input[type="date"]::-webkit-datetime-edit {
+    padding: 0;
+  }
+
+  /* keep icon aligned and tappable */
+  form input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: 16px;
+    opacity: 0.7;
+    cursor: pointer;
   }
 }
